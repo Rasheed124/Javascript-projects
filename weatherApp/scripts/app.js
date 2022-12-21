@@ -62,7 +62,16 @@ cityForm.addEventListener("submit", (e) => {
     cityForm.reset();
 
     // Getting City Data into UC and resolve(then) or reject(Catch) data
-    updateCity(city).then(data => updateUi(data)).catch(err => console.log(err))
-    // updateCity(city).then(data => c(data)).catch(err => console.log(err))
+    updateCity(city)
+    .then(data => updateUi(data))
+    .catch(err => console.log(err))
+
+    localStorage.setItem('city', city);
 
 })
+
+if(localStorage.getItem('city')){
+    updateCity(localStorage.getItem('city'))
+    .then(data => updateUi(data))
+    .catch(err => console.log(err))
+}
