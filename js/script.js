@@ -6,6 +6,8 @@ let countDownDate = new Date().setHours(new Date().getHours()  +  720);
 // let countDownDate = new Date().setSeconds(new Date().getSeconds()  + 50);
 
 
+
+// To Format Date based on number (s)
 const formatTime = (time, string) => {
     return time == 1 ? `<span class="sub_time">${time}${string}</span>` : `<span class="sub_time" >${time}${string}s<span>`
 }
@@ -19,6 +21,7 @@ const countDays = document.querySelector(".date"),
       countSeconds  =  document.querySelector(".seconds");
 
 
+    //   Set Timer Function- To get Days, Hours, Minutes, Seconds
 const setTimer = () => {
     const now = new Date().getTime();
     const countDown = new Date(countDownDate).getTime();
@@ -42,9 +45,13 @@ const setTimer = () => {
     countSeconds.innerHTML = formatTime(seconds, 'second');
 }
 
+
+// Ends CountDown If it Gets To Zero(0) Seconds
 const endCountDown = () => {
     clearInterval(timeInterval );
 }
+
+
 
 window.addEventListener("load", () => {
     setTimer();
