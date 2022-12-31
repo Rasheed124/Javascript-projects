@@ -5,8 +5,11 @@ const details = document.querySelector(".details");
 const time = document.querySelector("img.time");
 const icon = document.querySelector(".icon img");
 
-const updateUi = (data) => {
+const forecast = new Forecast();
 
+c(forecast)
+
+const updateUi = (data) => {
 
     // Destructure properties application
     const { cityDetails,  weather } = data;
@@ -41,15 +44,6 @@ const updateUi = (data) => {
 }
 
 
-// Updating City from form value
-const updateCity = async (city) => {
-
-    const cityDetails = await getCity(city);
-    const weather = await getWeather(cityDetails.Key);
-
-    return{ cityDetails, weather};
-};
-
 
 // Getting Form data (value) from UI(user)
 const cityForm = document.querySelector("form");
@@ -62,7 +56,7 @@ cityForm.addEventListener("submit", (e) => {
     cityForm.reset();
 
     // Getting City Data into UC and resolve(then) or reject(Catch) data
-    updateCity(city)
+    forecast.updateCity(city)
     .then(data => updateUi(data))
     .catch(err => console.log(err))
 
@@ -71,7 +65,7 @@ cityForm.addEventListener("submit", (e) => {
 })
 
 if(localStorage.getItem('city')){
-    updateCity(localStorage.getItem('city'))
+    forecast.updateCity(localStorage.getItem('city'))
     .then(data => updateUi(data))
     .catch(err => console.log(err))
 }
