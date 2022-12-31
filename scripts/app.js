@@ -7,7 +7,6 @@ const icon = document.querySelector(".icon img");
 
 const forecast = new Forecast();
 
-c(forecast)
 
 const updateUi = (data) => {
 
