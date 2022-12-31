@@ -1,6 +1,5 @@
 "use strict";
 
-
 class Forecast{
     constructor(){
         this.key = "izrwToNoV0gQHBfDa1SqL3Xibs5Wc38e";
