@@ -1,4 +1,3 @@
-
 :root {
     /* dark shades of primary color*/
     --clr-primary-1: hsl(205, 86%, 17%);
@@ -41,92 +40,110 @@
     --dark-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
     --max-width: 1170px;
     --fixed-width: 620px;
-  }
-  /*
+}
+
+/*
   =============== 
   Global Styles
   ===============
   */
-  
-  *,
-  ::after,
-  ::before {
+
+*,
+::after,
+::before {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-  }
-  body {
+}
+
+body {
     font-family: var(--ff-secondary);
     background: var(--clr-grey-10);
     color: var(--clr-grey-1);
     line-height: 1.5;
     font-size: 0.875rem;
-  }
-  ul {
+}
+
+ul {
     list-style-type: none;
-  }
-  a {
+}
+
+a {
     text-decoration: none;
-  }
-  img:not(.logo) {
+}
+
+img:not(.logo) {
     width: 100%;
-  }
-  img {
+}
+
+img {
     display: block;
-  }
-  
-  h1,
-  h2,
-  h3,
-  h4 {
+}
+
+h1,
+h2,
+h3,
+h4 {
     letter-spacing: var(--spacing);
     text-transform: capitalize;
     line-height: 1.25;
     margin-bottom: 0.75rem;
     font-family: var(--ff-primary);
-  }
-  h1 {
+}
+
+h1 {
     font-size: 3rem;
-  }
-  h2 {
+}
+
+h2 {
     font-size: 2rem;
-  }
-  h3 {
+}
+
+h3 {
     font-size: 1.25rem;
-  }
-  h4 {
+}
+
+h4 {
     font-size: 0.875rem;
-  }
-  p {
+}
+
+p {
     margin-bottom: 1.25rem;
     color: var(--clr-grey-5);
-  }
-  @media screen and (min-width: 800px) {
+}
+
+@media screen and (min-width: 800px) {
     h1 {
-      font-size: 4rem;
+        font-size: 4rem;
     }
+
     h2 {
-      font-size: 2.5rem;
+        font-size: 2.5rem;
     }
+
     h3 {
-      font-size: 1.75rem;
+        font-size: 1.75rem;
     }
+
     h4 {
-      font-size: 1rem;
+        font-size: 1rem;
     }
+
     body {
-      font-size: 1rem;
+        font-size: 1rem;
     }
+
     h1,
     h2,
     h3,
     h4 {
-      line-height: 1;
+        line-height: 1;
     }
-  }
-  /*  global classes */
-  
-  .btn {
+}
+
+/*  global classes */
+
+.btn {
     text-transform: uppercase;
     background: transparent;
     color: var(--clr-black);
@@ -139,47 +156,54 @@
     cursor: pointer;
     box-shadow: 0 1px 3px rgba(0, 0, 0, 0.2);
     border-radius: var(--radius);
-  }
-  .btn:hover {
+}
+
+.btn:hover {
     color: var(--clr-white);
     background: var(--clr-black);
-  }
-  /* section */
-  .section {
+}
+
+/* section */
+.section {
     padding: 5rem 0;
-  }
-  
-  main {
+}
+
+main {
     min-height: 100vh;
     display: grid;
     place-items: center;
-  }
-  /*
+}
+
+/*
   =============== 
   Menu
   ===============
   */
-  
-  .menu {
+
+.menu {
     padding: 5rem 0;
-  }
-  .title {
+}
+
+.title {
     text-align: center;
     margin-bottom: 2rem;
-  }
-  .underline {
+}
+
+.underline {
     width: 5rem;
     height: 0.25rem;
     background: var(--clr-gold);
     margin-left: auto;
     margin-right: auto;
-  }
-  .btn-container {
+}
+
+.btn-container {
     margin-bottom: 4rem;
     display: flex;
     justify-content: center;
-  }
-  .filter-btn {
+}
+
+.filter-btn {
     background: transparent;
     border-color: var(--clr-gold);
     font-size: 1rem;
@@ -191,62 +215,73 @@
     color: var(--clr-gold);
     cursor: pointer;
     transition: var(--transition);
-  }
-  .filter-btn:hover {
+}
+
+.filter-btn:hover {
     background: var(--clr-gold);
     color: var(--clr-white);
-  }
-  .section-center {
+}
+
+.section-center {
     width: 90vw;
     margin: 0 auto;
     max-width: 1170px;
     display: grid;
     gap: 3rem 2rem;
     justify-items: center;
-  }
-  .menu-item {
+}
+
+.menu-item {
     display: grid;
     gap: 1rem 2rem;
     max-width: 25rem;
-  }
-  .photo {
+}
+
+.photo {
     object-fit: cover;
     height: 200px;
     border: 0.25rem solid var(--clr-gold);
     border-radius: var(--radius);
-  }
-  .item-info header {
+}
+
+.item-info header {
     display: flex;
     justify-content: space-between;
     border-bottom: 0.5px dotted var(--clr-grey-5);
-  }
-  .item-info h4 {
+}
+
+.item-info h4 {
     margin-bottom: 0.5rem;
-  }
-  .price {
+}
+
+.price {
     color: var(--clr-gold);
-  }
-  .item-text {
+}
+
+.item-text {
     margin-bottom: 0;
     padding-top: 1rem;
-  }
-  
-  @media screen and (min-width: 768px) {
+}
+
+@media screen and (min-width: 768px) {
     .menu-item {
-      grid-template-columns: 225px 1fr;
-      gap: 0 1.25rem;
-      max-width: 40rem;
+        grid-template-columns: 225px 1fr;
+        gap: 0 1.25rem;
+        max-width: 40rem;
     }
+
     .photo {
-      height: 175px;
+        height: 175px;
     }
-  }
-  @media screen and (min-width: 1200px) {
+}
+
+@media screen and (min-width: 1200px) {
     .section-center {
-      width: 95vw;
-      grid-template-columns: 1fr 1fr;
+        width: 95vw;
+        grid-template-columns: 1fr 1fr;
     }
+
     .photo {
-      height: 150px;
+        height: 150px;
     }
-  }
+}
