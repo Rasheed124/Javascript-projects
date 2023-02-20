@@ -7,81 +7,39 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.14.0/css/all.min.css" />
-  <link rel="stylesheet" href="./css/style.css">
-  <title>Navigation </title>
+
+  <link rel="stylesheet" href="./style.css">
+  <title>Video Animation </title>
 </head>
 
 <body>
-  <nav>
-    <div class="nav-center">
-      <!-- nav header -->
-      <div class="nav-header">
-        <h3 class="logo">Rasheed</h3>
-        <button class="nav-toggle">
-          <i class="fas fa-bars"></i>
-        </button>
-      </div>
-      <!-- links -->
-      <ul class="links">
-        <li>
-          <a href="index.html">home</a>
-        </li>
-        <li>
-          <a href="about.html">about</a>
-        </li>
-        <li>
-          <a href="projects.html">projects</a>
-        </li>
-        <li>
-          <a href="contact.html">contact</a>
-        </li>
-        <li>
-          <a href="index.html">home</a>
-        </li>
-        <li>
-          <a href="about.html">about</a>
-        </li>
-        <li>
-          <a href="projects.html">projects</a>
-        </li>
-        <li>
-          <a href="contact.html">contact</a>
-        </li>
-      </ul>
-      <!-- social media -->
-      <ul class="social-icons">
-        <li>
-          <a href="https://www.twitter.com">
-            <i class="fab fa-facebook"></i>
-          </a>
-        </li>
-        <li>
-          <a href="https://www.twitter.com">
-            <i class="fab fa-twitter"></i>
-          </a>
-        </li>
-        <li>
-          <a href="https://www.twitter.com">
-            <i class="fab fa-behance"></i>
-          </a>
-        </li>
-        <li>
-          <a href="https://www.twitter.com">
-            <i class="fab fa-linkedin"></i>
-          </a>
-        </li>
-        <li>
-          <a href="https://www.twitter.com">
-            <i class="fab fa-sketch"></i>
-          </a>
-        </li>
-      </ul>
-    </div>
-  </nav>
-  <!-- javascript -->
-  <script src="../carousel/js/fawesome.js"></script>
 
-  <script src="./js/script.js"></script>
+  <!-- preloader -->
+  <div class="preloader">
+    <img src="./preloader.gif" alt="preloader" class="preloader__item" />
+  </div>
+  <!-- header  -->
+
+  <header>
+    <video muted autoplay loop class="video-container">
+      <source src="./video.mp4" type="video/mp4" />
+    </video>
+    <h1>video project</h1>
+    <!-- video switch  -->
+    <button class="switch-btn">
+      <span>
+        play
+      </span>
+      <span>
+        pause
+      </span>
+      <span class="switch"></span>
+    </button>
+  </header>
+
+  <!-- javascript -->
+
+  <script src="./script.js"></script>
 </body>
 
 </html>
