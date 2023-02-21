@@ -1,25 +1,29 @@
-const video = document.querySelector(".video-container");
+const btns = document.querySelectorAll(".tab-btn");
 
-const preLoader = document.querySelector(".preloader");
+const about = document.querySelector(".about");
 
-const switchBtn = document.querySelector(".switch-btn");
+const articles = document.querySelectorAll(".content");
 
+const log = console.log.bind(document);
 
+about.addEventListener("click", (e) => {
+    const id = e.target.dataset.id;
 
-window.addEventListener("load", () => {
+    if (id) {
+        log(id)
+        //    remove active from other buttons
+        btns.forEach(btn => {
+            btn.classList.remove("active");
+            e.target.classList.add("active");
+        })
 
-    preLoader.classList.add("hide-preloader");
+        // hide other articles
+        articles.forEach(article => {
+            article.classList.remove("active");
+        })
 
+        const element = document.getElementById(id);
 
-    switchBtn.addEventListener("click", () => {
-        if(!switchBtn.classList.contains("slide")){
-            switchBtn.classList.add("slide")
-            video.pause()
-        }else{
-            switchBtn.classList.remove("slide")
-            video.play()
-        }
-    })
-
- 
+        element.classList.add("active")
+    }
 })
