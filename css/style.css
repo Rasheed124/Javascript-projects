@@ -20,12 +20,12 @@ body {
 }
 
 .container {
-    max-width: 500px;
+    max-width: 400px;
     margin: 40px auto;
     text-align: center;
     font-size: 30px;
-    height: 600px;
     color: #fff;
+    height: 100vh;
 }
 
 .container .content {
@@ -39,6 +39,10 @@ body {
 
 
 /* Counter Post */
+.container .content .post {
+    padding: 5px 0px;
+}
+
 .container .content .post h5 {
     font-size: 16px;
     opacity: 0.7;
@@ -61,12 +65,15 @@ body {
 
 
 /* Counter count */
+.container .count {
+    padding: 20px 0px;
+}
 
 .container .count h2 {
     font-size: 90px;
     font-weight: 400;
     line-height: 70px;
-    padding: 30px 0px;
+    padding-bottom: 10px;
 }
 
 .container .count h5 {
@@ -86,7 +93,7 @@ body {
 
 .container .dua h3 {
     font-size: 30px;
-    letter-spacing: 2px;
+    letter-spacing: 1px;
 
 }
 

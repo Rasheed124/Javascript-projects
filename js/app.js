@@ -14,7 +14,7 @@ const appData = [
         img: "../img/ramadan2.jpg",
         dua: "اَسْتَغْفِرُ اللہَ رَبِّی مِنْ کُلِّ ذَنْبٍ وَّ اَتُوْبُ اِلَیْہِ",
         duaTransliteration: "Astagfirullaha Rab – Bi Min Kulli Zambi Wa Atoobu Ilayhi.",
-        duaTranslation: "",
+        duaTranslation: "I seek forgiveness from Allah, my Lord, from every sin I committed",
     },
     {
         id: 3,
