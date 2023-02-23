@@ -2,36 +2,92 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+    font-weight: 100;
 }
 
 body {
-    min-height: 100vh;
     width: 100%;
-    font-family: monospace;
-}
-
-.container {
-    max-width: 500px;
-    margin: 0 auto;
-    text-align: center;
-    font-size: 30px;
-    height: 600px;
+    font-family: 'Impact Regular';
+    text-transform: uppercase;
     background-image: url(../img/ramadan1.jpg);
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
-    color: #fff;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
     background-color: rgb(25, 25, 25);
     opacity: 0.9;
     background-blend-mode: overlay;
 
+}
+
+.container {
+    max-width: 500px;
+    margin: 40px auto;
+    text-align: center;
+    font-size: 30px;
+    height: 600px;
+    color: #fff;
+}
+
+.container .content {
+    padding: 30px 0px 20px 0px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-direction: column;
+    height: inherit;
+}
+
+
+/* Counter Post */
+.container .content .post h5 {
+    font-size: 16px;
+    opacity: 0.7;
+    letter-spacing: 1.5px;
+
 
 }
 
-.container .content div:not(:nth-child(1)) {
-    margin-top: 50px;
+.container .content .post h2 {
+    letter-spacing: 1.8px;
+    font-size: 27px;
+}
+
+.container .content .post h1 {
+    font-size: 37px;
+    line-height: 30px;
+    letter-spacing: 1.5px;
+
+}
+
+
+/* Counter count */
+
+.container .count h2 {
+    font-size: 90px;
+    font-weight: 400;
+    line-height: 70px;
+}
+
+.container .count h5 {
+    font-size: 40px;
+    opacity: 0.5;
+}
+
+/* Counter Dua */
+.container .dua h3 {
+    font-size: 30px;
+    letter-spacing: 2px;
+
+}
+
+.container .dua h4 {
+    font-size: 20px;
+    font-weight: 300;
+    letter-spacing: 2px;
+
+}
+
+.container .dua p {
+    font-size: 15px;
+    letter-spacing: 2px;
 }
