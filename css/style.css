@@ -66,6 +66,7 @@ body {
     font-size: 90px;
     font-weight: 400;
     line-height: 70px;
+    padding: 30px 0px;
 }
 
 .container .count h5 {
@@ -74,6 +75,15 @@ body {
 }
 
 /* Counter Dua */
+.container .dua {
+    font-family: Arial, Helvetica, sans-serif;
+    padding: 0px 50px;
+}
+
+.container .dua * {
+    padding-bottom: 10px;
+}
+
 .container .dua h3 {
     font-size: 30px;
     letter-spacing: 2px;
