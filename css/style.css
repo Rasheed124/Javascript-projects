@@ -8,7 +8,6 @@
 body {
     width: 100%;
     font-family: 'Impact Regular';
-    text-transform: uppercase;
     background-image: url(../img/ramadan1.jpg);
     background-position: center;
     background-repeat: no-repeat;
@@ -23,13 +22,11 @@ body {
     max-width: 400px;
     margin: 40px auto;
     text-align: center;
-    font-size: 30px;
     color: #fff;
     height: 100vh;
 }
 
 .container .content {
-    padding: 30px 0px 20px 0px;
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -39,16 +36,11 @@ body {
 
 
 /* Counter Post */
-.container .content .post {
-    padding: 5px 0px;
-}
 
 .container .content .post h5 {
     font-size: 16px;
     opacity: 0.7;
     letter-spacing: 1.5px;
-
-
 }
 
 .container .content .post h2 {
@@ -60,20 +52,15 @@ body {
     font-size: 37px;
     line-height: 30px;
     letter-spacing: 1.5px;
-
 }
 
 
 /* Counter count */
-.container .count {
-    padding: 20px 0px;
-}
 
 .container .count h2 {
     font-size: 90px;
     font-weight: 400;
     line-height: 70px;
-    padding-bottom: 10px;
 }
 
 .container .count h5 {
@@ -91,6 +78,10 @@ body {
     padding-bottom: 10px;
 }
 
+.container .dua .three {
+    padding-bottom: 0px;
+}
+
 .container .dua h3 {
     font-size: 30px;
     letter-spacing: 1px;
@@ -101,10 +92,16 @@ body {
     font-size: 20px;
     font-weight: 300;
     letter-spacing: 2px;
-
 }
 
 .container .dua p {
     font-size: 15px;
     letter-spacing: 2px;
+}
+
+@media screen and (min-width: 768px) {
+    .container .dua {
+        font-family: Arial, Helvetica, sans-serif;
+        padding: 0px 20px;
+    }
 }

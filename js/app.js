@@ -76,10 +76,10 @@ const getEachDua = () => {
 }
 
 
-setInterval(setRandomAppData, 3000);
+setInterval(setRandomAppData, 5000);
 
 setRandomAppData();
 
-setInterval(getEachDua, 3000);
+setInterval(getEachDua, 5000);
 
 getEachDua();
