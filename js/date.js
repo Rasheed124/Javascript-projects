@@ -32,7 +32,7 @@ let tempYear = tempDate.getFullYear();
 let tempMonth = tempDate.getMonth();
 let tempDay = tempDate.getDate();
 // months are ZERO index based;
-const futureDate = new Date(tempYear, tempMonth, tempDay + 28, 12, 15, 0);
+const futureDate = new Date(tempYear, tempMonth, tempDay + 28, 12, 00, 0);
 
 // let futureDate = new Date(2020, 1, 22, 18, 30, 0);
 
@@ -71,7 +71,7 @@ function getRemaindingTime() {
     const values = days;
     function format(items) {
         if (items < 10) {
-            return (item = `0${items}`);
+            return (items = `0${items}`);
         }
         return items;
     }
@@ -80,7 +80,7 @@ function getRemaindingTime() {
 
     if (t < 0) {
         clearInterval(countdown);
-        deadline.innerHTML = `<h4 class="expired">sorry, this giveaway has expired!</h4>`;
+        deadline.innerHTML = `<h4 class="expired">Alhamdulilahi Today is First of Ramadan</h4>`;
     }
 }
 // countdown;
