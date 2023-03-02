@@ -502,6 +502,10 @@ main {
 
     }
 
+    .product-container .product-image img {
+        border-radius: 20px;
+    }
+
 }
 
 
@@ -616,11 +620,7 @@ main {
 
     }
 
-    .product-container .product-image img {
-        border-radius: 20px;
 
-
-    }
 
     .product-container .desc-add-button {
         grid-template-columns: repeat(2, 1fr);
