@@ -47,6 +47,8 @@ a {
 
 button {
     display: block;
+    cursor: pointer;
+
 }
 
 img {
@@ -220,7 +222,6 @@ main {
     top: -10px;
     right: 0px;
     width: 100%;
-    height: 250px;
     background-color: var(--White);
     border-radius: 30px;
     box-shadow: 29px 29px 79px 21px rgba(0, 0, 0, 0.1);
@@ -229,6 +230,14 @@ main {
     z-index: 100;
 }
 
+#product .container .cart-items .title h5 {
+    padding-bottom: 10px;
+    padding: 30px 0px 10px 20px;
+    border-bottom: 1px solid var(--Grayish-blue);
+    font-size: 20px;
+}
+
+
 #product .container .cart-items .item .content {
     text-align: center;
     padding: 18px 20px;
@@ -236,12 +245,64 @@ main {
     overflow-x: hidden;
 }
 
-#product .container .cart-items .title h5 {
-    padding-bottom: 10px;
-    padding: 30px 0px 10px 20px;
-    border-bottom: 1px solid var(--Grayish-blue);
-    font-size: 20px;
+.container .cart-items .content-item {
+    display: flex;
+    /* justify-content: ; */
+    justify-items: center;
+    padding-bottom: 6px;
 }
+
+.container .cart-items .content button {
+    width: 100%;
+    background-color: var(--Orange);
+    border: none;
+    padding: 15px 20px;
+    text-align: center;
+    outline: none;
+    border-radius: 10px;
+    color: var(--White);
+    font-size: 16px;
+}
+
+
+.container .cart-items .content-item img {
+    width: 80px;
+    height: 80px;
+    border-radius: 10px;
+}
+
+.container .cart-items .content-item .one {
+    display: flex;
+    /* justify-content: center; */
+    /* justify-items: center; */
+    align-items: center;
+}
+
+.container .cart-items .content-item .one div {
+    padding-left: 10px;
+    text-align: left;
+}
+
+.container .cart-items .content-item .one div span:last-of-type {
+    font-size: 17px;
+    font-weight: bold;
+}
+
+.container .cart-items .content-item .one div h4 {
+    padding-bottom: 10px;
+    font-size: 15px;
+}
+
+.container .cart-items .content-item .one div:last-of-type {
+    color: var(--Grayish-blue);
+}
+
+.container .cart-items .content-item .one div svg {
+    width: 20px;
+    height: 30px;
+}
+
+
 
 /* ADD TO CART  ENDS */
 
@@ -418,13 +479,13 @@ main {
 
 .product-container .desc-add-button button {
     width: 100%;
-    padding: 15px 6px;
+    padding: 10px 6px;
     outline: none;
     border: none;
     border-radius: 20px;
-    display: block;
     font-size: 20px;
     font-weight: bold;
+
 }
 
 .product-container .desc-add-button button:first-child {
@@ -437,22 +498,41 @@ main {
     justify-content: space-between;
 }
 
+.product-container .desc-add-button button:last-child {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.product-container .desc-add-button button:last-child svg {
+    display: flex;
+    justify-content: center;
+    justify-items: center;
+    align-items: center;
+    width: 27px;
+    height: 27px;
+    margin-top: 6px;
+}
+
 .product-container .desc-add-button button:first-child span:not(:nth-child(2)) {
     color: var(--Orange);
+    font-size: 22px;
+    cursor: pointer;
 }
 
 .product-container .desc-add-button button:last-child {
     background-color: var(--Orange);
     color: var(--White);
-    font-weight: 500;
-
+    font-weight: bold;
+    font-size: 18px;
 }
 
 
 @media screen and (min-width: 500px) {
     #product .container .cart-items .item {
-        width: 350px;
         top: -10px;
+        width: 350px;
+
 
     }
 
@@ -476,6 +556,10 @@ main {
         height: 500px;
         object-fit: cover;
     }
+
+    #product .container .cart-items .item {
+        right: 0;
+    }
 }
 
 @media screen and (min-width: 900px) {
@@ -487,9 +571,8 @@ main {
     }
 
     #product .container .cart-items .item {
-        width: 350px;
         top: -10px;
-        right: -60px;
+        right: -20px;
     }
 
     /* PRODUCTS SECTION START */
@@ -600,15 +683,32 @@ main {
     }
 
     #product .container .cart-items .item {
-        width: 350px;
         top: -20px;
         right: 0px;
+        width: 370px;
 
     }
 
 
 
     /* PRODUCTS SECTION START */
+    .product-container {
+        grid-gap: 10px;
+    }
+
+    .product-container .description * {
+        padding-bottom: 10px;
+    }
+
+
+
+    .product-container .description .desc-title>* {
+        margin: 5px 0px;
+    }
+
+    .product-container .description .desc-title {
+        max-width: 450px;
+    }
 
     .product-container .description .desc-title h2 {
         font-size: 35px;
@@ -618,6 +718,17 @@ main {
         font-size: 17px;
         line-height: 1.5;
 
+    }
+
+    .product-container .description div {
+        margin: 5px 0px;
+    }
+
+
+    .product-container .desc-price {
+        flex-direction: column;
+        justify-content: start;
+        align-items: flex-start;
     }
 
 
