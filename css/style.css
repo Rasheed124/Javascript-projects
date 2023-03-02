@@ -479,10 +479,26 @@ main {
 }
 
 @media screen and (min-width: 900px) {
+
+    main {
+        max-width: 1000px;
+        margin: 0 auto;
+        padding: 10px 30px;
+    }
+
     #product .container .cart-items .item {
         width: 350px;
         top: -10px;
         right: -60px;
+    }
+
+    /* PRODUCTS SECTION START */
+    .product-container {
+        grid-template-columns: repeat(2, 1fr);
+        place-content: center;
+        place-items: center;
+        grid-gap: 50px;
+        margin: 80px 0px;
 
     }
 
@@ -589,14 +605,6 @@ main {
 
 
     /* PRODUCTS SECTION START */
-    .product-container {
-        grid-template-columns: repeat(2, 1fr);
-        place-content: center;
-        place-items: center;
-        grid-gap: 50px;
-        margin: 80px 0px;
-
-    }
 
     .product-container .description .desc-title h2 {
         font-size: 35px;
@@ -609,7 +617,7 @@ main {
     }
 
     .product-container .product-image img {
-        border-radius: 50px;
+        border-radius: 20px;
 
 
     }
