@@ -63,6 +63,7 @@ let result = Array.from(slideImages).map((product) => {
    return product
 })
 
+
 slideNext.addEventListener("click", () => {
    currentItem++
    if (currentItem > result.length - 1) {
@@ -92,22 +93,22 @@ slidePrevious.addEventListener("click", () => {
 
 
 
-const product = [
-   {
-      id: 1,
-      name: "Fall Limited Edition Sneakers",
-      image: "./images/image-product-1.jpg",
-      price: 125
+// const product = [
+//    {
+//       id: 1,
+//       name: "Fall Limited Edition Sneakers",
+//       image: "./images/image-product-1.jpg",
+//       price: 125
 
-   },
-   {
-      id: 1,
-      name: "Fall Limited Edition Sneakers",
-      image: "./images/image-product-1.jpg",
-      price: 125
+//    },
+//    {
+//       id: 1,
+//       name: "Fall Limited Edition Sneakers",
+//       image: "./images/image-product-1.jpg",
+//       price: 125
 
-   },
-]
+//    },
+// ]
 
 
 
@@ -124,105 +125,84 @@ const deduceItem = document.querySelector(".desc-add-button div span:first-of-ty
 let currentItems = 0;
 
 
-function getItems(coun) {
+function getItems() {
 
-   return `
-      <div class="content">
-      <div class="content-item">
-         <img class="item-img" src="./images/image-product-1.jpg" alt="">
-         <div class="one">
-         <div>
-            <h4>Fall Limited Edition Sneakers</h4>
-            <p>$125.00 <span>X</span> ${coun} <span>$375.00</span> </p>
-         </div>
-   
-            <div id="delete-product">
-                  <svg  xmlns="http://www.w3.org/2000/svg"
-                     class="icon icon-tabler icon-tabler-trash" width="24" height="24"
-                     viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none"
-                     stroke-linecap="round" stroke-linejoin="round">
-                     <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
-                     <path d="M4 7l16 0"></path>
-                     <path d="M10 11l0 6"></path>
-                     <path d="M14 11l0 6"></path>
-                     <path d="M5 7l1 12a2 2 0 0 0 2 2h8a2 2 0 0 0 2 -2l1 -12"></path>
-                     <path d="M9 7v-3a1 1 0 0 1 1 -1h4a1 1 0 0 1 1 1v3"></path>
-                  </svg>
-            </div>
-         </div>
-      </div>
-       <button>Checkout</button>
+   let element = document.createElement('div');
+
+   element.setAttribute("class", "content")
+
+   element.innerHTML = `
+   <div class="content-item">
+   <img class="item-img" src="./images/image-product-1.jpg" alt="">
+   <div class="one">
+   <div>
+      <h4>Fall Limited Edition Sneakers</h4>
+      <p>$125.00 <span>X</span> <span>$375.00</span> </p>
    </div>
-      
-      `;
 
+      <div id="delete-product">
+            <svg  xmlns="http://www.w3.org/2000/svg"
+               class="icon icon-tabler icon-tabler-trash" width="24" height="24"
+               viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none"
+               stroke-linecap="round" stroke-linejoin="round">
+               <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
+               <path d="M4 7l16 0"></path>
+               <path d="M10 11l0 6"></path>
+               <path d="M14 11l0 6"></path>
+               <path d="M5 7l1 12a2 2 0 0 0 2 2h8a2 2 0 0 0 2 -2l1 -12"></path>
+               <path d="M9 7v-3a1 1 0 0 1 1 -1h4a1 1 0 0 1 1 1v3"></path>
+            </svg>
+      </div>
+   </div>
+</div>
+ <button>Checkout</button>
+
+   `;
+
+   console.log(element);
 
 
 
 }
 
+getItems()
 
 
 
 
-const countProductItem = () => {
+let count = 0;
 
-   let count = 0;
-   addItem.addEventListener("click", () => {
+const countProductItem = (e) => {
 
-      countItem.innerHTML = count++;
-   });
+   if (e.target.outerText === "+") {
+      count++;
+      countItem.innerHTML = count;
 
-   deduceItem.addEventListener("click", () => {
+   } else {
+      count--;
+      countItem.innerHTML = count;
 
-      countItem.innerHTML = count--;
-
-
-   });
+   }
 
    return count;
 
 }
 
-let resultCount = countProductItem();
-
-console.log(resultCount);
-
-const itemsContainer = document.querySelector(".item-cont");
-
-addToCart.addEventListener("click", () => {
-
-   if (countItem.innerHTML > 0) {
-
-      itemsContainer.innerHTML = getItems(resultCount)
-   }
-
-
-})
-
-
-if (getItems()) {
 
 
 
-   const deleteIcon = document.querySelector("#delete-product");
 
+addItem.addEventListener("click", countProductItem);
 
-
-   deleteIcon.addEventListener("click", (e) => {
-
-      console.log((e.target));
-
-      // itemsContainer.innerHTML = `<p>cart is empty</p>`;
-
-   })
+deduceItem.addEventListener("click", countProductItem);
 
 
 
 
 
 
-}
+
+
 
 
 
