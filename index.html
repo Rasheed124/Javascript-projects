@@ -6,7 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <link rel="stylesheet" href="./css/style.css">
+    <link rel="stylesheet" href="./style.css">
 
     <link rel="shortcut icon" href="./images/favicon-32x32.png">
     <title>E-commerce Project</title>
@@ -14,189 +14,19 @@
 
 <body>
 
-    <header id="header">
-        <div class=" container">
+    <section class="section-center">
+        <h3>tired of boring lorem ipsum?</h3>
+        <form class="lorem-form">
+            <label for="amount">paragraphs:</label>
+            <input type="number" name="amount" id="amount" placeholder="5" />
+            <button type="submit" class="btn">generate</button>
+        </form>
+        <article class="lorem-text"></article>
+    </section>
 
-            <div class="header-container">
-                <div class="header-content">
-                    <div class="header-logo">
-                        <div class="open-menu">
-                            <img src="./images/icon-menu.svg" alt="">
-                        </div>
-                        <div class="logo">
-                            <img src="./images/logo.svg" alt="">
-                        </div>
-                    </div>
+    <!-- javascript -->
 
-                    <div class="header-menus">
-                        <div class="menu-overlay"></div>
-                        <div class="menu">
-                            <span class="close-menu">
-                                <img src="./images/icon-close.svg" alt="">
-                            </span>
-                            <ul>
-
-                                <li><a href="#">Colections</a></li>
-                                <li><a href="#">Men</a></li>
-                                <li><a href="#">Women</a></li>
-                                <li><a href="#">About</a></li>
-                                <li><a href="#">Contact</a></li>
-                            </ul>
-                        </div>
-                    </div>
-
-                </div>
-
-                <div class="cart-container">
-                    <div class="header-cart">
-                        <div class="cart">
-                            <svg class="cart-icon" xmlns="http://www.w3.org/2000/svg"
-                                class="icon icon-tabler icon-tabler-shopping-cart" width="24" height="24"
-                                viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none"
-                                stroke-linecap="round" stroke-linejoin="round">
-                                <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
-                                <path d="M6 19m-2 0a2 2 0 1 0 4 0a2 2 0 1 0 -4 0"></path>
-                                <path d="M17 19m-2 0a2 2 0 1 0 4 0a2 2 0 1 0 -4 0"></path>
-                                <path d="M17 17h-11v-14h-2"></path>
-                                <path d="M6 5l14 1l-1 7h-13"></path>
-                            </svg>
-                        </div>
-                        <div class="cart-owner">
-                            <img src="./images/image-avatar.avif" alt="">
-                        </div>
-                    </div>
-
-
-                </div>
-
-
-
-            </div>
-
-
-        </div>
-
-    </header>
-
-    <main>
-
-        <section id="product">
-            <div class="container">
-                <div class="cart-items">
-                    <div class="item">
-                        <div class="title">
-                            <h5>cart</h5>
-                        </div>
-                        <div class="item-cont">
-
-                            <p>cart is empty</p>
-
-
-
-                        </div>
-
-                    </div>
-                </div>
-                <div class="product-container">
-                    <div class="product-image-container">
-                        <div class="product-image">
-                            <div class="slide-product-image">
-                                <span class="spi-previous">
-                                    <svg xmlns="http://www.w3.org/2000/svg"
-                                        class="icon icon-tabler icon-tabler-chevron-left" width="25" height="25"
-                                        viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none"
-                                        stroke-linecap="round" stroke-linejoin="round">
-                                        <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
-                                        <path d="M15 6l-6 6l6 6"></path>
-                                    </svg>
-                                </span>
-                                <span class="spi-next">
-                                    <svg xmlns="http://www.w3.org/2000/svg"
-                                        class="icon icon-tabler icon-tabler-chevron-left" width="25" height="25"
-                                        viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none"
-                                        stroke-linecap="round" stroke-linejoin="round">
-                                        <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
-                                        <path d="M15 6l-6 6l6 6"></path>
-                                    </svg>
-                                </span>
-
-                            </div>
-                            <div class="image">
-
-                                <img id="pro-image-id" src="./images/image-product-1.jpg" alt="">
-
-                            </div>
-                        </div>
-                        <div class="product-cart-image">
-                            <div class="preview-image">
-                                <div class="image-one cart-1">
-                                    <img class="slideimg" src="./images/image-product-1.jpg " alt="">
-
-                                </div>
-                                <div class="image-one cart-2">
-                                    <img class="slideimg" src="./images/image-product-2.jpg" alt="">
-
-                                </div>
-                                <div class="image-one cart-3">
-                                    <img class="slideimg" src="./images/image-product-3.jpg" alt="">
-
-                                </div>
-                                <div class="image-one cart-4">
-                                    <img class="slideimg" src="./images/image-product-4.jpg" alt="">
-
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="product-description">
-                        <div class="description">
-                            <div class="desc-title">
-                                <h3>Sneaker Company</h3>
-                                <h2> Fall Limited Edition Sneakers</h2>
-                                <p> These low-profile sneakers are your perfect casual wear companion. Featuring a
-                                    durable rubber outer sole, they’ll withstand everything the weather can offer.</p>
-                            </div>
-                            <div class="desc-price">
-                                <div>
-                                    <span> $125.00</span>
-                                    <span>50%</span>
-                                </div>
-
-                                <div>
-                                    <span> $250.00</span>
-                                </div>
-                            </div>
-                            <div class="desc-add-button">
-                                <div class="add-or-remove">
-                                    <span>-</span>
-                                    <span>0</span>
-                                    <span>+</span>
-                                </div>
-                                <button class="add-to-cart">
-                                    <svg class="cart-icon" xmlns="http://www.w3.org/2000/svg"
-                                        class="icon icon-tabler icon-tabler-shopping-cart" width="24" height="24"
-                                        viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none"
-                                        stroke-linecap="round" stroke-linejoin="round">
-                                        <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
-                                        <path d="M6 19m-2 0a2 2 0 1 0 4 0a2 2 0 1 0 -4 0"></path>
-                                        <path d="M17 19m-2 0a2 2 0 1 0 4 0a2 2 0 1 0 -4 0"></path>
-                                        <path d="M17 17h-11v-14h-2"></path>
-                                        <path d="M6 5l14 1l-1 7h-13"></path>
-                                    </svg> Add Cart
-                                </button>
-                            </div>
-
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-    </main>
-
-
-
-    <script src="./js/script.js"></script>
+    <script src="./script.js"></script>
 </body>
 
 </html>
