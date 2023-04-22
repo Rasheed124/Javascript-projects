@@ -93,22 +93,16 @@ slidePrevious.addEventListener("click", () => {
 
 
 
-// const product = [
-//    {
-//       id: 1,
-//       name: "Fall Limited Edition Sneakers",
-//       image: "./images/image-product-1.jpg",
-//       price: 125
+const product = [
+   {
+      id: 1,
+      name: "Fall Limited Edition Sneakers",
+      image: "./images/image-product-1.jpg",
+      price: 125
 
-//    },
-//    {
-//       id: 1,
-//       name: "Fall Limited Edition Sneakers",
-//       image: "./images/image-product-1.jpg",
-//       price: 125
+   },
+]
 
-//    },
-// ]
 
 
 
@@ -122,22 +116,23 @@ let addToCart = document.querySelector(".desc-add-button > button.add-to-cart");
 const deduceItem = document.querySelector(".desc-add-button div span:first-of-type");
 
 // let itemsContainer = [];
-let currentItems = 0;
+let cartCountItem = 0;
 
+const getItem = (item) => {
 
-function getItems() {
+   let productItem = product[item]
 
    let element = document.createElement('div');
 
-   element.setAttribute("class", "content")
+   element.setAttribute("class", "content");
 
    element.innerHTML = `
    <div class="content-item">
-   <img class="item-img" src="./images/image-product-1.jpg" alt="">
+   <img class="item-img" src="${productItem.image}" alt="">
    <div class="one">
    <div>
-      <h4>Fall Limited Edition Sneakers</h4>
-      <p>$125.00 <span>X</span> <span>$375.00</span> </p>
+      <h4>${productItem.name}</h4>
+      <p>$${productItem.price}.00 <span>X</span> <span>$375.00</span> </p>
    </div>
 
       <div id="delete-product">
@@ -160,19 +155,14 @@ function getItems() {
    `;
 
    console.log(element);
-
-
-
 }
 
-getItems()
+getItem(cartCountItem)
 
 
 
 
-let count = 0;
-
-const countProductItem = (e) => {
+const countProductItem = (e, id) => {
 
    if (e.target.outerText === "+") {
       count++;
@@ -184,8 +174,6 @@ const countProductItem = (e) => {
 
    }
 
-   return count;
-
 }
 
 
@@ -195,8 +183,6 @@ const countProductItem = (e) => {
 addItem.addEventListener("click", countProductItem);
 
 deduceItem.addEventListener("click", countProductItem);
-
-
 
 
 
