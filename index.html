@@ -4,24 +4,37 @@
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
+
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <link rel="stylesheet" href="./style.css">
 
     <link rel="shortcut icon" href="./images/favicon-32x32.png">
-    <title>E-commerce Project</title>
+    <title>Grocery Bud</title>
 </head>
 
 <body>
 
     <section class="section-center">
-        <h3>tired of boring lorem ipsum?</h3>
-        <form class="lorem-form">
-            <label for="amount">paragraphs:</label>
-            <input type="number" name="amount" id="amount" placeholder="5" />
-            <button type="submit" class="btn">generate</button>
+        <!-- form -->
+        <form class="grocery-form">
+            <p class="alert"></p>
+            <h3>grocery bud</h3>
+            <div class="form-control">
+                <input type="text" id="grocery" placeholder="e.g. eggs" />
+                <button type="submit" class="submit-btn">submit</button>
+            </div>
         </form>
-        <article class="lorem-text"></article>
+        <!-- list -->
+        <div class="grocery-container">
+            <div class="grocery-list">
+                <article class="grocery-item">
+
+                </article>
+
+            </div>
+            <button class="clear-btn">clear items</button>
+        </div>
     </section>
 
     <!-- javascript -->
