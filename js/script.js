@@ -93,15 +93,15 @@ slidePrevious.addEventListener("click", () => {
 
 
 
-const product = [
-   {
-      id: 1,
-      name: "Fall Limited Edition Sneakers",
-      image: "./images/image-product-1.jpg",
-      price: 125
+// const product = [
+//    {
+//       id: 1,
+//       name: "Fall Limited Edition Sneakers",
+//       image: "./images/image-product-1.jpg",
+//       price: 125
 
-   },
-]
+//    },
+// ]
 
 
 
@@ -118,7 +118,7 @@ const deduceItem = document.querySelector(".desc-add-button div span:first-of-ty
 // let itemsContainer = [];
 let cartCountItem = 0;
 
-const getItem = (item) => {
+const getItem = (count) => {
 
    let productItem = product[item]
 
@@ -150,31 +150,34 @@ const getItem = (item) => {
       </div>
    </div>
 </div>
- <button>Checkout</button>
+ <button>Checkout</button>`;
 
-   `;
 
-   console.log(element);
 }
 
-getItem(cartCountItem)
 
 
 
+let count = 0;
 
-const countProductItem = (e, id) => {
 
+const countProductItem = (e) => {
    if (e.target.outerText === "+") {
       count++;
       countItem.innerHTML = count;
 
+      getItem()
+
    } else {
       count--;
+      // count < 0 ? countItem.innerHTML = 0 : ""
       countItem.innerHTML = count;
 
-   }
+      getItem()
 
+   }
 }
+
 
 
 
