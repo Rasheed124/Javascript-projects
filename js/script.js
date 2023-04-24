@@ -1,13 +1,29 @@
 
 
 
-const openMenu = document.querySelector(".open-menu");
-const menuMain = document.querySelector(".header-menus");
-const menuOverlay = document.querySelector(".menu-overlay");
-const closeMenu = document.querySelector(".close-menu");
+const openMenu = document.querySelector(".open-menu"),
+   menuMain = document.querySelector(".header-menus"),
+   menuOverlay = document.querySelector(".menu-overlay"),
+   closeMenu = document.querySelector(".close-menu"),
 
-const cartItem = document.querySelector(".cart-items");
-const cartIcon = document.querySelector(".cart-icon");
+   cartItem = document.querySelector(".cart-items"),
+   cartIcon = document.querySelector(".cart-icon");
+
+
+const closeProductGallery = document.querySelector(".product-gallery > .close-gallery"),
+   slideProductGallery = document.querySelector(".slide-product-gallery "),
+   showProductGallery = document.querySelector(".product-container .image ");
+
+// FUNCTIONS
+const switchProductImage = (image, productImage) => {
+   image.forEach((product) => {
+      product.addEventListener("click", () => {
+         let bgImage = product.querySelector("img").getAttribute("src");
+
+         productImage.setAttribute("src", `${bgImage}`)
+      })
+   })
+}
 
 
 // HEADER CLICKS 
@@ -25,37 +41,47 @@ closeMenu.addEventListener("click", () => {
 
 
 // DISPLAY CART ITEMS CONTAINER
-
 cartIcon.addEventListener("click", () => {
    cartItem.classList.toggle("show-cart-item")
 
 });
 
+// DISPLAY SLIDE PRODUCT GALLERY
+showProductGallery.addEventListener("click", () => {
+   slideProductGallery.classList.toggle("off-product-gallery");
+})
+
+closeProductGallery.addEventListener("click", () => {
+   slideProductGallery.classList.toggle("off-product-gallery");
+})
+
+
+
+
+const productImageGallery = document.querySelector("#product-Image-Gallery"),
+   productGalleryImages = document.querySelectorAll("#product-gallery .product-cart-image .gallery-img");
+
+switchProductImage(productGalleryImages, productImageGallery);
+
+
 
 // SHOW PRODUCT IMAGE FROM PRODUCTS 
 const productImage = document.querySelectorAll(".product-cart-image .image-one");
 
-const productImageId = document.querySelector(".product-image #pro-image-id");
+const productImageId = document.querySelector("#pro-image-id");
+
+switchProductImage(productImage, productImageId);
 
 
-productImage.forEach((product) => {
-   product.addEventListener("click", () => {
-      let bgImage = product.querySelector("img");
-
-      let bgImageSrc = bgImage.getAttribute("src");
-
-      productImageId.setAttribute("src", `${bgImageSrc}`)
-
-   })
-})
 
 
 // SLIDE PRODUCT IMAGE
-const slideImages = document.querySelectorAll(".product-cart-image .slideimg");
+const slideImages = document.querySelectorAll(".product-cart-image .slideimg"),
 
-const slidePrevious = document.querySelector(".slide-product-image .spi-previous");
+   slidePrevious = document.querySelector(".slide-product-image .spi-previous"),
 
-const slideNext = document.querySelector(".slide-product-image .spi-next");
+   slideNext = document.querySelector(".slide-product-image .spi-next");
+
 
 let currentItem = 0;
 
@@ -72,9 +98,23 @@ slideNext.addEventListener("click", () => {
 
    let currentImage = result[currentItem];
 
-   let currentImageSrc = currentImage.getAttribute("src")
+   let currentImageSrc = currentImage.getAttribute("src");
 
    productImageId.setAttribute("src", `${currentImageSrc}`)
+
+
+   let prod = Array.from(productImage).map((item, index) => {
+      return item
+   });
+
+   prod[currentItem].classList.add("active_product");
+
+   productImage.forEach(item => {
+      if (prod[currentItem] !== item) {
+         item.classList.remove("active_product");
+      }
+
+   })
 
 })
 
@@ -89,9 +129,25 @@ slidePrevious.addEventListener("click", () => {
    let currentImageSrc = currentImage.getAttribute("src")
 
    productImageId.setAttribute("src", `${currentImageSrc}`)
+
+   let prod = Array.from(productImage).map((item) => {
+      return item
+   });
+
+   prod[currentItem].classList.add("active_product");
+
+   productImage.forEach(item => {
+      if (prod[currentItem] !== item) {
+         item.classList.remove("active_product");
+      }
+
+   })
+
 })
 
 
+
+// ADD TO CART
 
 // const product = [
 //    {
@@ -102,9 +158,6 @@ slidePrevious.addEventListener("click", () => {
 
 //    },
 // ]
-
-
-
 
 const addItem = document.querySelector(".desc-add-button div span:last-of-type");
 
@@ -156,10 +209,7 @@ const getItem = (count) => {
 }
 
 
-
-
 let count = 0;
-
 
 const countProductItem = (e) => {
    if (e.target.outerText === "+") {
@@ -177,11 +227,6 @@ const countProductItem = (e) => {
 
    }
 }
-
-
-
-
-
 
 addItem.addEventListener("click", countProductItem);
 
