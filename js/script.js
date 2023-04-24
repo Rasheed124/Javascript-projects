@@ -43,10 +43,11 @@ closeMenu.addEventListener("click", () => {
 // DISPLAY CART ITEMS CONTAINER
 cartIcon.addEventListener("click", () => {
    cartItem.classList.toggle("show-cart-item")
-
 });
 
+
 // DISPLAY SLIDE PRODUCT GALLERY
+
 showProductGallery.addEventListener("click", () => {
    slideProductGallery.classList.toggle("off-product-gallery");
 })
@@ -58,10 +59,113 @@ closeProductGallery.addEventListener("click", () => {
 
 
 
+
 const productImageGallery = document.querySelector("#product-Image-Gallery"),
-   productGalleryImages = document.querySelectorAll("#product-gallery .product-cart-image .gallery-img");
+   productGalleryImages = document.querySelectorAll("#product-gallery .product-cart-image .gallery-img"),
+   slideGalleryImages = document.querySelectorAll("#product-gallery .gallery-img .slide-img"),
+
+
+   proGalleryPrev = document.querySelector("#product-gallery .slide-product-image .spi-previous"),
+   proGalleryNext = document.querySelector("#product-gallery .slide-product-image .spi-next");
 
 switchProductImage(productGalleryImages, productImageGallery);
+
+
+let gallerycurrentItem = 0;
+
+let resultGallery = Array.from(slideGalleryImages).map((product) => {
+   return product
+})
+
+proGalleryNext.addEventListener("click", () => {
+
+   gallerycurrentItem++
+   if (gallerycurrentItem > resultGallery.length - 1) {
+      gallerycurrentItem = 0;
+   }
+
+   let currentImage = resultGallery[gallerycurrentItem];
+
+   let currentImageSrc = currentImage.getAttribute("src");
+
+   productImageGallery.setAttribute("src", `${currentImageSrc}`)
+
+
+   let prod = Array.from(productGalleryImages).map((item) => {
+      return item
+   });
+
+   prod[gallerycurrentItem].classList.add("active_product_gallery");
+
+   productGalleryImages.forEach(item => {
+      if (prod[gallerycurrentItem] !== item) {
+         item.classList.remove("active_product_gallery");
+      }
+
+   })
+
+})
+
+proGalleryPrev.addEventListener("click", () => {
+
+   gallerycurrentItem--
+   if (gallerycurrentItem < 0) {
+      gallerycurrentItem = resultGallery.length - 1;
+   }
+
+
+
+   let currentImage = resultGallery[gallerycurrentItem];
+
+   let currentImageSrc = currentImage.getAttribute("src");
+
+   productImageGallery.setAttribute("src", `${currentImageSrc}`)
+
+
+   let prod = Array.from(productGalleryImages).map((item) => {
+      return item
+   });
+
+   prod[gallerycurrentItem].classList.add("active_product_gallery");
+
+   productGalleryImages.forEach(item => {
+      if (prod[gallerycurrentItem] !== item) {
+         item.classList.remove("active_product_gallery");
+      }
+
+   })
+
+})
+
+// slidePrevious.addEventListener("click", () => {
+//    currentItem--
+//    if (currentItem < 0) {
+//       currentItem = result.length - 1;
+//    }
+
+//    let currentImage = result[currentItem];
+
+//    let currentImageSrc = currentImage.getAttribute("src")
+
+//    productImageId.setAttribute("src", `${currentImageSrc}`)
+
+//    let prod = Array.from(productImage).map((item) => {
+//       return item
+//    });
+
+//    prod[currentItem].classList.add("active_product");
+
+//    productImage.forEach(item => {
+//       if (prod[currentItem] !== item) {
+//          item.classList.remove("active_product");
+//       }
+
+//    })
+
+// })
+
+
+
 
 
 
