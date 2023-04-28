@@ -1,10 +1,10 @@
-# WELCOME TO TOP JAVASCRIPT PROJECTS 
+# Welcome To Top Javascript projects 
 
 These are projects in the Repo
 
-# WEATHER APP
-# Background-Changer APP
-# TODOs
+ Weather App
+ Background Changer App
+ Todos
 
 etc.
 
