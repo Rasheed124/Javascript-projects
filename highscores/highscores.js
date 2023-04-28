@@ -1,0 +1,1 @@
+const highScore = document.querySelector("#finalScore")
