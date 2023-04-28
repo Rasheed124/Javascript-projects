@@ -8,6 +8,6 @@ These are projects in the Repo
 
 etc.
 
-# Check other branches for others
+# Check other branches for more.
 
 Thank you 😍.
