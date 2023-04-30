@@ -6,6 +6,8 @@ const progressText = document.getElementById("progressText");
 const progressBarFull = document.getElementById("progressBarFull");
 
 const scoreText = document.getElementById("score")
+const loader = document.querySelector("#loader")
+const game = document.querySelector("#game")
 
 
 
@@ -20,49 +22,63 @@ let questionCounter = 0;
 
 let availableQuestions = [];
 
-let questions = [
-
-    {
-        question: "What is the parent element of all html elements ??",
-        choice1: "<head>",
-        choice2: "<body>",
-        choice3: "<html>",
-        choice4: "<heading>",
-        answer: 3
-
-    },
-
-    {
-        question: "What is the common used in  html document ??",
-        choice1: "<div>",
-        choice2: "<p>",
-        choice3: "<h2>",
-        choice4: "<article>",
-        answer: 1
-
-    },
-
-    {
-        question: " html element is the parent element. True OR False ??",
-        choice1: "true",
-        choice2: "false",
-        choice3: "correct",
-        choice4: "incorrect",
-        answer: 1
-
-    },
-    {
-        question: "Which element refers to as web page view ??",
-        choice1: "<title>",
-        choice2: "<body>",
-        choice3: "<section>",
-        choice4: "<h4>",
-        answer: 2
-
-    },
+let questions = [];
 
 
-]
+// fetch questions
+fetch("../question.json")
+
+    .then(res => {
+        return res.json();
+    })
+
+    .then(loadedQuestions => {
+
+        questions = loadedQuestions.results.map(loadedQuestion => {
+
+            const formattedQuestion = {
+                question: loadedQuestion.question
+            };
+
+
+            const answerChoices = [...loadedQuestion.incorrect_answers];
+
+
+            formattedQuestion.answer = Math.floor(Math.random() * 3) + 1;
+
+
+
+            answerChoices.splice(
+                formattedQuestion.answer - 1,
+                0,
+                loadedQuestion.correct_answer
+            );
+
+
+
+
+            answerChoices.forEach((choice, index) => {
+                formattedQuestion["choice" + (index + 1)] = choice
+            })
+
+            return formattedQuestion;
+
+        });
+
+
+        startGame();
+
+
+
+    })
+    .catch(err => {
+        console.error(err)
+    })
+
+
+
+
+
 
 // CONSTANSTS
 
@@ -78,6 +94,9 @@ startGame = () => {
 
 
     getNewQuestion();
+
+    game.classList.remove("hidden")
+    loader.classList.add("hidden")
 }
 
 
@@ -123,6 +142,8 @@ getNewQuestion = () => {
 
 }
 
+
+
 choices.forEach(choice => {
     choice.addEventListener("click", e => {
         if (!acceptingAnswers) return;
@@ -153,9 +174,10 @@ choices.forEach(choice => {
     })
 })
 
+
+
 incrementScore = num => {
     score += num;
     scoreText.innerText = score;
 }
 
-startGame();
