@@ -521,18 +521,17 @@ main {
 
 .product-container .desc-add-button button {
     width: 100%;
-    padding: 10px 6px;
+    padding: 8px 30px;
     outline: none;
     border: none;
     border-radius: 20px;
-    font-size: 20px;
     font-weight: bold;
 
 }
 
 .product-container .desc-add-button div {
     width: 100%;
-    padding: 15px;
+    padding: 8px 30px;
     border-radius: 20px;
     background-color: var(--Light-grayish-blue);
     display: flex;
@@ -557,8 +556,13 @@ main {
 
 .product-container .desc-add-button div span:not(:nth-child(2)) {
     color: var(--Orange);
-    font-size: 22px;
+    font-size: 25px;
+    font-weight: bold;
     cursor: pointer;
+}
+
+.product-container .desc-add-button div span:nth-child(2) {
+    align-self: center;
 }
 
 .product-container .desc-add-button button:last-child {

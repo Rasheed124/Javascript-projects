@@ -68,6 +68,8 @@ const productImageGallery = document.querySelector("#product-Image-Gallery"),
    proGalleryPrev = document.querySelector("#product-gallery .slide-product-image .spi-previous"),
    proGalleryNext = document.querySelector("#product-gallery .slide-product-image .spi-next");
 
+
+
 switchProductImage(productGalleryImages, productImageGallery);
 
 
@@ -253,15 +255,6 @@ slidePrevious.addEventListener("click", () => {
 
 // ADD TO CART
 
-// const product = [
-//    {
-//       id: 1,
-//       name: "Fall Limited Edition Sneakers",
-//       image: "./images/image-product-1.jpg",
-//       price: 125
-
-//    },
-// ]
 
 const addItem = document.querySelector(".desc-add-button div span:last-of-type");
 
@@ -272,79 +265,103 @@ let addToCart = document.querySelector(".desc-add-button > button.add-to-cart");
 
 const deduceItem = document.querySelector(".desc-add-button div span:first-of-type");
 
-// let itemsContainer = [];
-let cartCountItem = 0;
 
-const getItem = (count) => {
-
-   let productItem = product[item]
-
-   let element = document.createElement('div');
-
-   element.setAttribute("class", "content");
-
-   element.innerHTML = `
-   <div class="content-item">
-   <img class="item-img" src="${productItem.image}" alt="">
-   <div class="one">
-   <div>
-      <h4>${productItem.name}</h4>
-      <p>$${productItem.price}.00 <span>X</span> <span>$375.00</span> </p>
-   </div>
-
-      <div id="delete-product">
-            <svg  xmlns="http://www.w3.org/2000/svg"
-               class="icon icon-tabler icon-tabler-trash" width="24" height="24"
-               viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none"
-               stroke-linecap="round" stroke-linejoin="round">
-               <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
-               <path d="M4 7l16 0"></path>
-               <path d="M10 11l0 6"></path>
-               <path d="M14 11l0 6"></path>
-               <path d="M5 7l1 12a2 2 0 0 0 2 2h8a2 2 0 0 0 2 -2l1 -12"></path>
-               <path d="M9 7v-3a1 1 0 0 1 1 -1h4a1 1 0 0 1 1 1v3"></path>
-            </svg>
-      </div>
-   </div>
-</div>
- <button>Checkout</button>`;
+cartItemContainer = document.querySelector("#item-container");
 
 
-}
+
+
+
+const product = [
+   {
+      id: 1,
+      name: "Fall Limited Edition Sneakers",
+      image: "./images/image-product-1.jpg",
+      price: 125
+
+   },
+
+]
+
+let cartItemBox = [];
 
 
 let count = 0;
 
-const countProductItem = (e) => {
+const getAddedCart = (e) => {
+
    if (e.target.outerText === "+") {
       count++;
       countItem.innerHTML = count;
-
-      getItem()
-
    } else {
       count--;
-      // count < 0 ? countItem.innerHTML = 0 : ""
-      countItem.innerHTML = count;
 
-      getItem()
+      count < 0 || count == 0 ? count = 0 : "";
+
+      countItem.innerHTML = count
+
 
    }
+
+
+   const addItemToCart = () => {
+      cartItemContainer.innerHTML = `
+      <div class="content" >
+      <div class="content-item">
+      <img class="item-img" src="./images/image-product-1.jpg" alt="">
+      <div class="one">
+      <div>
+         <h4>Fall Limited Edition Sneakers</h4>
+         <p><span id="count-price">$125.00</span>  <span>X</span> <span id="total-price">$125.00</span> </p>
+      </div>
+   
+         <div id="delete-product">
+               <svg  xmlns="http://www.w3.org/2000/svg"
+                  class="icon icon-tabler icon-tabler-trash" width="24" height="24"
+                  viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none"
+                  stroke-linecap="round" stroke-linejoin="round">
+                  <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
+                  <path d="M4 7l16 0"></path>
+                  <path d="M10 11l0 6"></path>
+                  <path d="M14 11l0 6"></path>
+                  <path d="M5 7l1 12a2 2 0 0 0 2 2h8a2 2 0 0 0 2 -2l1 -12"></path>
+                  <path d="M9 7v-3a1 1 0 0 1 1 -1h4a1 1 0 0 1 1 1v3"></path>
+               </svg>
+         </div>
+      </div>
+   </div>
+    <button>Checkout</button> 
+    </div>`
+         ;
+
+      const priceCount = document.getElementById("count-price");
+      const totalPrice = document.getElementById("total-price");
+
+      const correct1 = Number(priceCount.innerHTML)
+      const correct2 = totalPrice.innerHTML
+
+      console.log(correct1, correct2);
+
+
+
+
+   }
+
+
+
+
+
+   addToCart.addEventListener("click", addItemToCart)
+
 }
 
-addItem.addEventListener("click", countProductItem);
-
-deduceItem.addEventListener("click", countProductItem);
 
 
 
+addItem.addEventListener("click", getAddedCart);
 
 
-
-
-
-
-
+deduceItem.addEventListener("click", getAddedCart);
 
 
 
