@@ -95,11 +95,14 @@ startGame = () => {
 
     getNewQuestion();
 
+
     game.classList.remove("hidden")
     loader.classList.add("hidden")
 }
 
 
+
+// Getting New Question
 getNewQuestion = () => {
 
 
