@@ -74,11 +74,15 @@ const productImageGallery = document.querySelector("#product-Image-Gallery"),
 switchProductImage(productGalleryImages, productImageGallery);
 
 
+
+
+
 let gallerycurrentItem = 0;
 
 let resultGallery = Array.from(slideGalleryImages).map((product) => {
    return product
 })
+
 
 proGalleryNext.addEventListener("click", () => {
 
@@ -140,33 +144,6 @@ proGalleryPrev.addEventListener("click", () => {
 
 })
 
-// slidePrevious.addEventListener("click", () => {
-//    currentItem--
-//    if (currentItem < 0) {
-//       currentItem = result.length - 1;
-//    }
-
-//    let currentImage = result[currentItem];
-
-//    let currentImageSrc = currentImage.getAttribute("src")
-
-//    productImageId.setAttribute("src", `${currentImageSrc}`)
-
-//    let prod = Array.from(productImage).map((item) => {
-//       return item
-//    });
-
-//    prod[currentItem].classList.add("active_product");
-
-//    productImage.forEach(item => {
-//       if (prod[currentItem] !== item) {
-//          item.classList.remove("active_product");
-//       }
-
-//    })
-
-// })
-
 
 
 
@@ -225,6 +202,8 @@ slideNext.addEventListener("click", () => {
 
 })
 
+
+
 slidePrevious.addEventListener("click", () => {
    currentItem--
    if (currentItem < 0) {
@@ -255,8 +234,6 @@ slidePrevious.addEventListener("click", () => {
 
 
 // ADD TO CART
-
-
 const addItem = document.querySelector(".desc-add-button div span:last-of-type");
 
 let countItem = document.querySelector(".desc-add-button div span:nth-child(2)");
@@ -270,6 +247,20 @@ const deduceItem = document.querySelector(".desc-add-button div span:first-of-ty
 const cartItemContainer = document.getElementById("item-container");
 
 
+const message = document.getElementById("displayMessage")
+
+
+const displayMessage = (text, action) => {
+   message.textContent = text;
+   message.classList.add(action)
+
+   setTimeout(() => {
+      message.textContent = "";
+      message.classList.remove(action)
+   }, 2000)
+
+
+}
 
 
 const items_array = [
@@ -283,8 +274,8 @@ const items_array = [
 
 const item = items_array[0];
 
-let cart = [];
-const itemCart = () => {
+
+const addProductToCart = () => {
 
    let countCart = item.id
 
@@ -352,13 +343,9 @@ const itemCart = () => {
                ;
 
 
-            const message = document.getElementById("displayMessage")
 
-            const displayMessage = () => {
-               message.innerHTML = "Product added successfully";
-            }
-            setTimeout(displayMessage, 1000)
-            message.innerHTML = "";
+            displayMessage("Product added successfully", "success")
+
 
 
             const deleteProduct = document.querySelector("#delete-product");
@@ -369,6 +356,8 @@ const itemCart = () => {
 
             })
 
+         } else {
+            displayMessage("Please add a product", "danger")
          }
 
 
@@ -378,7 +367,7 @@ const itemCart = () => {
 
 }
 
-itemCart();
+addProductToCart();
 
 
 
