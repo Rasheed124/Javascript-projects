@@ -312,15 +312,16 @@ const itemCart = () => {
       item.id = countCart;
 
       let newProdCart = items_array.map(prod => {
-         if (!item.id >= 0) {
+         if (item.id > 0 && item.id !== 0) {
             return { id: item.id, name: prod.image, price: prod.price * item.id }
          } else {
             return prod
          }
       }).forEach(prod => {
 
-         cartItemContainer.innerHTML =
-            `
+         if (prod.id > 0) {
+            cartItemContainer.innerHTML =
+               `
          <div class="content" >
          <div class="content-item">
          <img class="item-img" src="./images/image-product-1.jpg" alt="">
@@ -348,27 +349,29 @@ const itemCart = () => {
             </div>
        
           `
-            ;
+               ;
 
-         const message = document.getElementById("displayMessage")
 
-         const displayMessage = () => {
-            message.innerHTML = "Product added successfully";
+            const message = document.getElementById("displayMessage")
+
+            const displayMessage = () => {
+               message.innerHTML = "Product added successfully";
+            }
+            setTimeout(displayMessage, 1000)
+            message.innerHTML = "";
+
+
+            const deleteProduct = document.querySelector("#delete-product");
+
+            deleteProduct.addEventListener("click", () => {
+
+               cartItemContainer.innerHTML = `<p>cart is empty</p>`
+
+            })
+
          }
-         setTimeout(displayMessage, 1000)
-         message.innerHTML = "";
 
 
-
-
-
-         const deleteProduct = document.querySelector("#delete-product");
-
-         deleteProduct.addEventListener("click", () => {
-
-            cartItemContainer.innerHTML = `<p>cart is empty</p>`
-
-         })
       });
 
    });
