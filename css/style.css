@@ -563,6 +563,7 @@ main {
 
 .product-container .desc-add-button div span:nth-child(2) {
     align-self: center;
+
 }
 
 .product-container .desc-add-button button:last-child {
@@ -570,6 +571,10 @@ main {
     color: var(--White);
     font-weight: bold;
     font-size: 18px;
+}
+
+#delete-product {
+    cursor: pointer;
 }
 
 
@@ -621,6 +626,7 @@ main {
 .slide-product-gallery .product-image-container .slide-product-image span svg {
     color: var(--Very-dark-blue);
     transition: none .5s ease-out;
+    cursor: pointer;
 }
 
 .slide-product-gallery .product-image-container .slide-product-image span svg:hover {

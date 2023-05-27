@@ -1,6 +1,7 @@
 
 
 
+
 const openMenu = document.querySelector(".open-menu"),
    menuMain = document.querySelector(".header-menus"),
    menuOverlay = document.querySelector(".menu-overlay"),
@@ -266,102 +267,108 @@ let addToCart = document.querySelector(".desc-add-button > button.add-to-cart");
 const deduceItem = document.querySelector(".desc-add-button div span:first-of-type");
 
 
-cartItemContainer = document.querySelector("#item-container");
+const cartItemContainer = document.getElementById("item-container");
 
 
 
 
-
-const product = [
+const items_array = [
    {
-      id: 1,
+      id: 0,
       name: "Fall Limited Edition Sneakers",
       image: "./images/image-product-1.jpg",
       price: 125
-
-   },
-
+   }
 ]
 
-let cartItemBox = [];
+const item = items_array[0];
+
+let cart = [];
+const itemCart = () => {
+
+   let countCart = item.id
+
+   // let newProdCart = Object.entries(item);
+   addItem.addEventListener("click", () => {
+      countCart++
+      countItem.innerHTML = countCart;
+
+      return countCart
+
+   })
+
+   deduceItem.addEventListener("click", () => {
+      countCart--;
+
+      countCart < 0 || countCart == 0 ? countCart = 0 : "";
+
+      countItem.innerHTML = countCart
+
+      return countCart
+   })
 
 
-let count = 0;
+   addToCart.addEventListener("click", () => {
+      item.id = countCart;
 
-const getAddedCart = (e) => {
+      let newProdCart = items_array.map(prod => {
+         if (item.id > 0) {
+            return { id: item.id, name: prod.image, price: prod.price * item.id }
+         } else {
+            return prod
+         }
+      }).forEach(prod => {
 
-   if (e.target.outerText === "+") {
-      count++;
-      countItem.innerHTML = count;
-   } else {
-      count--;
-
-      count < 0 || count == 0 ? count = 0 : "";
-
-      countItem.innerHTML = count
-
-
-   }
-
-
-   const addItemToCart = () => {
-      cartItemContainer.innerHTML = `
-      <div class="content" >
-      <div class="content-item">
-      <img class="item-img" src="./images/image-product-1.jpg" alt="">
-      <div class="one">
-      <div>
-         <h4>Fall Limited Edition Sneakers</h4>
-         <p><span id="count-price">$125.00</span>  <span>X</span> <span id="total-price">$125.00</span> </p>
-      </div>
-   
-         <div id="delete-product">
-               <svg  xmlns="http://www.w3.org/2000/svg"
-                  class="icon icon-tabler icon-tabler-trash" width="24" height="24"
-                  viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none"
-                  stroke-linecap="round" stroke-linejoin="round">
-                  <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
-                  <path d="M4 7l16 0"></path>
-                  <path d="M10 11l0 6"></path>
-                  <path d="M14 11l0 6"></path>
-                  <path d="M5 7l1 12a2 2 0 0 0 2 2h8a2 2 0 0 0 2 -2l1 -12"></path>
-                  <path d="M9 7v-3a1 1 0 0 1 1 -1h4a1 1 0 0 1 1 1v3"></path>
-               </svg>
+         cartItemContainer.innerHTML =
+            `
+         <div class="content" >
+         <div class="content-item">
+         <img class="item-img" src="./images/image-product-1.jpg" alt="">
+         <div class="one">
+         <div>
+            <h4>Fall Limited Edition Sneakers</h4>
+            <p><span id="count-price">$125.00</span>  <span>X</span> <span id="total-price">$${prod.price}</span> </p>
          </div>
-      </div>
-   </div>
-    <button>Checkout</button> 
-    </div>`
-         ;
+            <div id="delete-product">
+                  <svg  xmlns="http://www.w3.org/2000/svg"
+                     class="icon icon-tabler icon-tabler-trash" width="24" height="24"
+                     viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none"
+                     stroke-linecap="round" stroke-linejoin="round">
+                     <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
+                     <path d="M4 7l16 0"></path>
+                     <path d="M10 11l0 6"></path>
+                     <path d="M14 11l0 6"></path>
+                     <path d="M5 7l1 12a2 2 0 0 0 2 2h8a2 2 0 0 0 2 -2l1 -12"></path>
+                     <path d="M9 7v-3a1 1 0 0 1 1 -1h4a1 1 0 0 1 1 1v3"></path>
+                  </svg>
+                 </div>
+               </div>
+            </div>
+            <button>Checkout</button> 
+            </div>
+       
+          `
+            ;
 
-      const priceCount = document.getElementById("count-price");
-      const totalPrice = document.getElementById("total-price");
+         const deleteProduct = document.querySelector("#delete-product");
 
-      const correct1 = Number(priceCount.innerHTML)
-      const correct2 = totalPrice.innerHTML
+         deleteProduct.addEventListener("click", () => {
 
-      console.log(correct1, correct2);
+            cartItemContainer.innerHTML = `<p>cart is empty</p>`
 
+         })
+      });
 
-
-
-   }
-
-
-
-
-
-   addToCart.addEventListener("click", addItemToCart)
+   });
 
 }
 
+itemCart();
 
 
 
-addItem.addEventListener("click", getAddedCart);
 
 
-deduceItem.addEventListener("click", getAddedCart);
 
 
 
