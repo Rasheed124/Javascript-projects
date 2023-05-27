@@ -312,7 +312,7 @@ const itemCart = () => {
       item.id = countCart;
 
       let newProdCart = items_array.map(prod => {
-         if (item.id > 0) {
+         if (!item.id >= 0) {
             return { id: item.id, name: prod.image, price: prod.price * item.id }
          } else {
             return prod
@@ -349,6 +349,18 @@ const itemCart = () => {
        
           `
             ;
+
+         const message = document.getElementById("displayMessage")
+
+         const displayMessage = () => {
+            message.innerHTML = "Product added successfully";
+         }
+         setTimeout(displayMessage, 1000)
+         message.innerHTML = "";
+
+
+
+
 
          const deleteProduct = document.querySelector("#delete-product");
 
