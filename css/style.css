@@ -577,6 +577,21 @@ main {
 
 #delete-product {
     cursor: pointer;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+}
+
+#delete-product svg {
+    align-self: self-end;
+}
+
+#delete-product .add-cart span,
+#delete-product .remove-cart span {
+    color: var(--Orange);
+    font-size: 19px;
+
 }
 
 #displayMessage {

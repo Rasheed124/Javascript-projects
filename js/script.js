@@ -234,20 +234,16 @@ slidePrevious.addEventListener("click", () => {
 
 
 // ADD TO CART
-const addItem = document.querySelector(".desc-add-button div span:last-of-type");
+const addItem = document.querySelector(".desc-add-button div span:last-of-type"),
+   deduceItem = document.querySelector(".desc-add-button div span:first-of-type"),
 
-let countItem = document.querySelector(".desc-add-button div span:nth-child(2)");
+   cartItemContainer = document.getElementById("item-container"),
+   message = document.getElementById("displayMessage");
 
-let addToCart = document.querySelector(".desc-add-button > button.add-to-cart");
-
-
-const deduceItem = document.querySelector(".desc-add-button div span:first-of-type");
-
-
-const cartItemContainer = document.getElementById("item-container");
+let countItem = document.querySelector(".desc-add-button div span:nth-child(2)"),
+   addToCart = document.querySelector(".desc-add-button > button.add-to-cart");
 
 
-const message = document.getElementById("displayMessage")
 
 
 const displayMessage = (text, action) => {
@@ -262,7 +258,6 @@ const displayMessage = (text, action) => {
 
 }
 
-
 const items_array = [
    {
       id: 0,
@@ -272,14 +267,14 @@ const items_array = [
    }
 ]
 
-const item = items_array[0];
 
+const item = items_array[0];
 
 const addProductToCart = () => {
 
    let countCart = item.id
 
-   // let newProdCart = Object.entries(item);
+
    addItem.addEventListener("click", () => {
       countCart++
       countItem.innerHTML = countCart;
@@ -299,66 +294,112 @@ const addProductToCart = () => {
    })
 
 
+   const modifyProduct = (count) => {
+      item.id = count;
+
+
+      const prodResult = items_array.map(newProd => {
+         if (item.id > 1) {
+            return { newId: item.id }
+         } else {
+            return newProd;
+         }
+      })
+
+      console.log(prodResult);
+   }
+
+
    addToCart.addEventListener("click", () => {
       item.id = countCart;
 
       let newProdCart = items_array.map(prod => {
          if (item.id > 0 && item.id !== 0) {
-            return { id: item.id, name: prod.image, price: prod.price * item.id }
+            return { id: item.id, name: prod.name, price: prod.price * item.id }
          } else {
             return prod
          }
       }).forEach(prod => {
 
+
+
          if (prod.id > 0) {
             cartItemContainer.innerHTML =
                `
-         <div class="content" >
-         <div class="content-item">
-         <img class="item-img" src="./images/image-product-1.jpg" alt="">
-         <div class="one">
-         <div>
-            <h4>Fall Limited Edition Sneakers</h4>
-            <p><span id="count-price">$125.00</span>  <span>X</span> <span id="total-price">$${prod.price}</span> </p>
-         </div>
-            <div id="delete-product">
-                  <svg  xmlns="http://www.w3.org/2000/svg"
-                     class="icon icon-tabler icon-tabler-trash" width="24" height="24"
-                     viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none"
-                     stroke-linecap="round" stroke-linejoin="round">
-                     <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
-                     <path d="M4 7l16 0"></path>
-                     <path d="M10 11l0 6"></path>
-                     <path d="M14 11l0 6"></path>
-                     <path d="M5 7l1 12a2 2 0 0 0 2 2h8a2 2 0 0 0 2 -2l1 -12"></path>
-                     <path d="M9 7v-3a1 1 0 0 1 1 -1h4a1 1 0 0 1 1 1v3"></path>
-                  </svg>
-                 </div>
-               </div>
-            </div>
-            <button>Checkout</button> 
-            </div>
+               <div class="content">
+               <div class="content-item">
+                   <img class="item-img" src="./images/image-product-1.jpg" alt="">
+                   <div class="one">
+                       <div>
+                           <h4>${prod.name}</h4>
+                           <p><span id="count-price">$125.00</span> <span>X</span>  <span id="updated-product">${prod.id}</span>  <span id="total-price">$${prod.price}</span>
+                           </p>
+                       </div>
+                       <div id="delete-product">
+                       <div class="add-cart">
+                           <span>+</span>
+                        </div>
+                           <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-trash" width="24"
+                               height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none"
+                               stroke-linecap="round" stroke-linejoin="round">
+                               <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
+                               <path d="M4 7l16 0"></path>
+                               <path d="M10 11l0 6"></path>
+                               <path d="M14 11l0 6"></path>
+                               <path d="M5 7l1 12a2 2 0 0 0 2 2h8a2 2 0 0 0 2 -2l1 -12"></path>
+                               <path d="M9 7v-3a1 1 0 0 1 1 -1h4a1 1 0 0 1 1 1v3"></path>
+                           </svg>
        
-          `
-               ;
+                           <div class="remove-cart">
+                               <span>-</span>
+                           </div>
+       
+                       </div>
+                   </div>
+               </div>
+               <button>Checkout</button>
+           </div>
+      
+          `;
+
+            if (prod.id >= 1) {
+               displayMessage("Product added successfully", "success")
+            }
 
 
+            const updatedProd = document.querySelector(".content-item #updated-product");
+            const deleteCart = document.querySelector("#delete-product svg.icon-tabler ");
+            const removeCart = document.querySelector("#delete-product .remove-cart span");
+            const addCart = document.querySelector("#delete-product .add-cart span");
 
-            displayMessage("Product added successfully", "success")
-
-
-
-            const deleteProduct = document.querySelector("#delete-product");
-
-            deleteProduct.addEventListener("click", () => {
-
-               cartItemContainer.innerHTML = `<p>cart is empty</p>`
-
+            addCart.addEventListener("click", () => {
+               modifyProduct(count++)
             })
+
+            // removeCart.addEventListener("click", () => {
+            //    modifyProduct()
+            // })
+
+
+
+
+
+
+
+
+            deleteCart.addEventListener("click", () => {
+               cartItemContainer.innerHTML = `<p>cart is empty</p>`
+            })
+
+
+
+
 
          } else {
             displayMessage("Please add a product", "danger")
          }
+
+
 
 
       });
